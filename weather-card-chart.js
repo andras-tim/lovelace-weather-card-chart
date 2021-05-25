@@ -4,7 +4,7 @@ const locale = {
     tempLo: "Temperatur nat",
     precip: "Nedbør",
     uPress: "hPa",
-    uSpeed: "m/s",
+    uSpeed: "km/h",
     uPrecip: "mm",
     cardinalDirections: [
       'N', 'N-NØ', 'NØ', 'Ø-NØ', 'Ø', 'Ø-SØ', 'SØ', 'S-SØ',
@@ -16,7 +16,7 @@ const locale = {
     tempLo: "Tiefsttemperatur",
     precip: "Niederschlag",
     uPress: "hPa",
-    uSpeed: "m/s",
+    uSpeed: "km/h",
     uPrecip: "mm",
     cardinalDirections: [
       'N', 'N-NO', 'NO', 'O-NO', 'O', 'O-SO', 'SO', 'S-SO',
@@ -28,7 +28,7 @@ const locale = {
     tempLo: "Temperature night",
     precip: "Precipitations",
     uPress: "hPa",
-    uSpeed: "m/s",
+    uSpeed: "km/h",
     uPrecip: "mm",
     cardinalDirections: [
       'N', 'N-NE', 'NE', 'E-NE', 'E', 'E-SE', 'SE', 'S-SE',
@@ -40,7 +40,7 @@ const locale = {
     tempLo: "Temperatura mínima",
     precip: "Precipitations",
     uPress: "hPa",
-    uSpeed: "m/s",
+    uSpeed: "km/h",
     uPrecip: "mm",
     cardinalDirections: [
       'N', 'N-NE', 'NE', 'E-NE', 'E', 'E-SE', 'SE', 'S-SE',
@@ -52,7 +52,7 @@ const locale = {
     tempLo: "Température nuit",
     precip: "Précipitations",
     uPress: "hPa",
-    uSpeed: "m/s",
+    uSpeed: "km/h",
     uPrecip: "mm",
     cardinalDirections: [
       'N', 'N-NE', 'NE', 'E-NE', 'E', 'E-SE', 'SE', 'S-SE',
@@ -64,7 +64,7 @@ const locale = {
     tempLo: "Min. hőmérséklet",
     precip: "Csapadék",
     uPress: "hPa",
-    uSpeed: "m/s",
+    uSpeed: "km/ó",
     uPrecip: "mm",
     cardinalDirections: [
       'É', 'É-ÉK', 'ÉK', 'K-ÉK', 'K', 'K-DK', 'DK', 'D-DK',
@@ -76,7 +76,7 @@ const locale = {
     tempLo: "Minimum temperatuur",
     precip: "Neerslag",
     uPress: "hPa",
-    uSpeed: "m/s",
+    uSpeed: "km/h",
     uPrecip: "mm",
     cardinalDirections: [
       'N', 'N-NO', 'NO', 'O-NO', 'O', 'O-ZO', 'ZO', 'Z-ZO',
@@ -100,7 +100,7 @@ const locale = {
     tempLo: "Temperatur natt",
     precip: "Nederbörd",
     uPress: "hPa",
-    uSpeed: "m/s",
+    uSpeed: "km/h",
     uPrecip: "mm",
     cardinalDirections: [
       'N', 'N-NO', 'NO', 'O-NO', 'O', 'O-SO', 'SO', 'S-SO',
@@ -188,7 +188,7 @@ class WeatherCardChart extends Polymer.Element {
                 [[roundNumber(windObj.state)]] [[ll('uSpeed')]]                
               </template>
               <template is="dom-if" if="[[!windObj]]">
-                [[computeWind(weatherObj.attributes.wind_speed)]] [[ll('uSpeed')]]
+                [[weatherObj.attributes.wind_speed]] [[ll('uSpeed')]]
               </template>
             </div>
           </div>
@@ -288,11 +288,6 @@ class WeatherCardChart extends Polymer.Element {
     return date.toLocaleTimeString(this.lang,
       { hour:'2-digit', minute:'2-digit' }
     );
-  }
-
-  computeWind(speed) {
-    var calcSpeed = Math.round(speed * 1000 / 3600);
-    return calcSpeed;
   }
 
   getCardSize() {
