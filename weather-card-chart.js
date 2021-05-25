@@ -59,6 +59,18 @@ const locale = {
       'S', 'S-SO', 'SO', 'O-SO', 'O', 'O-NO', 'NO', 'N-NO', 'N'
     ]
   },
+  hu: {
+    tempHi: "Max. hőmérséklet",
+    tempLo: "Min. hőmérséklet",
+    precip: "Csapadék",
+    uPress: "hPa",
+    uSpeed: "m/s",
+    uPrecip: "mm",
+    cardinalDirections: [
+      'É', 'É-ÉK', 'ÉK', 'K-ÉK', 'K', 'K-DK', 'DK', 'D-DK',
+      'D', 'D-DNY', 'DNY', 'NY-DNY', 'NY', 'NY-ÉNY', 'ÉNY', 'É-ÉNY', 'É'
+    ]
+  },
   nl: {
     tempHi: "Maximum temperatuur",
     tempLo: "Minimum temperatuur",
