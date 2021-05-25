@@ -116,7 +116,6 @@ class WeatherCardChart extends Polymer.Element {
           align-items: center;
           font-size: 60px;
           font-weight: 350;
-          margin-top: -10px;
         }
         .main ha-icon {
           --iron-icon-height: 74px;
