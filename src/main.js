@@ -497,7 +497,10 @@ class WeatherChartCard extends LitElement {
     const pressure = Math.round(weather.attributes.pressure);
     const humidity = Math.round(weather.attributes.humidity);
     const windDir = weather.attributes.wind_bearing;
-    const windSpeed = Math.round(weather.attributes.wind_speed * 1000 / 3600);
+    var windSpeed = weather.attributes.wind_speed;
+    if (this.ll('uSpeed') === 'm/s') {
+      windSpeed = Math.round(windSpeed * 1000 / 3600);
+    }
     if (config.show_attributes == false)
       return html``;
     return html`
